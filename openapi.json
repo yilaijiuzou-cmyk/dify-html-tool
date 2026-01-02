@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.1",
+  "info": { "title": "HTML 下载器", "version": "1.0.0" },
+  "servers": [{ "url": "https://<后面再改>.cn-east-3.fc.app.huaweicloud.com" }],
+  "paths": {
+    "/gen_html": {
+      "post": {
+        "operationId": "gen_html",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["content"],
+                "properties": {
+                  "content": { "type": "string", "description": "HTML 源码或片段" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "download_url": { "type": "string", "format": "uri" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
